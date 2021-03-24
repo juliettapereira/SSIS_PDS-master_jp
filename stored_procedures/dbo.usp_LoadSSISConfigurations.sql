@@ -23,7 +23,7 @@ PURPOSE: Load the SSIS Configurations table
 MODIFICATION LOG:
 Ver      Date        Author           Description
 -------  ----------  ---------------  ------------------------------------------------------------------------
-1.0      11/03/2019  JJAUSSI          1. Created this process for LDS BC IT243
+1.0      3/24/2021  Julietta Pereira    1. Load SSIS Configurations table
 
 
 
@@ -95,10 +95,10 @@ SELECT c.*
 
     -- 2) Solution Level Configurations
 
-	-- 2.1) LDSBC_IT243_xx  
+	-- 2.1) LDSBC_IT243_jp  
 	
 	DELETE FROM dbo.[SSIS Configurations]
-     WHERE ConfigurationFilter = 'LDSBC_IT243_xx';
+     WHERE ConfigurationFilter = 'LDSBC_IT243_jp';
 	
 
 	-- 2.1.1) v_data_share_root
@@ -109,8 +109,8 @@ SELECT c.*
                                         , ConfiguredValueType)
     VALUES
           (
-           'LDSBC_IT243_xx'
-		 , 'C:\Users\z035330\Documents\JJAUSSI\Other\JC\projects\LDSBC\IT_243\repos\DFNB_src\txt_files\'
+           'LDSBC_IT243_jp'
+		 , 'C:\Users\julie\OneDrive\Escritorio\Current Classes\IT 243 - Data warehousing\Repos\DFNB_src-master_jp\txt_files\'
          , '\Package.Variables[User::v_data_share_root].Properties[Value]'
          , 'String'
           );
@@ -121,10 +121,10 @@ SELECT c.*
     -- 3) Package level configurations
 
 
-    -- 3.1) SSIS_PDS_Template_xx
+    -- 3.1) SSIS_PDS_Template_jp
 
     DELETE FROM dbo.[SSIS Configurations]
-     WHERE ConfigurationFilter = 'SSIS_PDS_Template_xx';
+     WHERE ConfigurationFilter = 'SSIS_PDS_Template_jp';
 	
 
 	-- 3.1.1) v_data_share_root
@@ -135,18 +135,18 @@ SELECT c.*
                                         , ConfiguredValueType)
     VALUES
           (
-           'SSIS_PDS_Template_xx'
-		 , 'C:\Users\z035330\Documents\JJAUSSI\Other\JC\projects\LDSBC\IT_243\repos\DFNB_src\txt_files\'
+           'SSIS_PDS_Template_jp'
+		 , 'C:\Users\julie\OneDrive\Escritorio\Current Classes\IT 243 - Data warehousing\Repos\DFNB_src-master_jp\txt_files\'
          , '\Package.Variables[User::v_data_share_root].Properties[Value]'
          , 'String'
           );
 
 
 
-    -- 3.2) LoadDFNB3_xx
+    -- 3.2) LoadDFNB3_jp
 
     DELETE FROM dbo.[SSIS Configurations]
-     WHERE ConfigurationFilter = 'LoadDFNB3_xx';
+     WHERE ConfigurationFilter = 'LoadDFNB3_jp';
 	
 
 	-- 3.1.1) v_data_share_root
@@ -157,8 +157,8 @@ SELECT c.*
                                         , ConfiguredValueType)
     VALUES
           (
-           'LoadDFNB3_xx'
-		 , 'C:\Users\z035330\Documents\JJAUSSI\Other\JC\projects\LDSBC\IT_243\repos\DFNB_src\txt_files\'
+           'LoadDFNB3_jp'
+		 , 'C:\Users\julie\OneDrive\Escritorio\Current Classes\IT 243 - Data warehousing\Repos\DFNB_src-master_jp\txt_files\'
          , '\Package.Variables[User::v_data_share_root].Properties[Value]'
          , 'String'
           );
