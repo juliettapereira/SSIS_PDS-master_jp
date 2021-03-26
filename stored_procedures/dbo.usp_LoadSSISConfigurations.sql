@@ -23,8 +23,9 @@ PURPOSE: Load the SSIS Configurations table
 MODIFICATION LOG:
 Ver      Date        Author           Description
 -------  ----------  ---------------  ------------------------------------------------------------------------
-1.0      3/24/2021  Julietta Pereira    1. Load SSIS Configurations table
-
+1.0      11/03/2019  JJAUSSI          1. Created this process for LDS BC IT243
+2.0      3/24/2021  Julietta Pereira  1. Added common configuration 1.2 conn_DFNB3
+2.0      3/25/2021  Julietta Pereira  1. Added 3.2 LoadDFNB3_jp package configuration
 
 
 RUNTIME: 
@@ -75,7 +76,7 @@ SELECT c.*
           );
 
 
-    -- 1.2) conn_DFNB
+    -- 1.2) conn_DFNB3
 
     INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
                                         , ConfiguredValue
@@ -136,6 +137,27 @@ SELECT c.*
     VALUES
           (
            'SSIS_PDS_Template_jp'
+		 , 'C:\Users\julie\OneDrive\Escritorio\Current Classes\IT 243 - Data warehousing\Repos\DFNB_src-master_jp\txt_files\'
+         , '\Package.Variables[User::v_data_share_root].Properties[Value]'
+         , 'String'
+          );
+
+
+    -- 3.2) LoadDFNB3_jp
+
+    DELETE FROM dbo.[SSIS Configurations]
+     WHERE ConfigurationFilter = 'LoadDFNB3_jp';
+	
+
+	-- 3.2.1) v_data_share_root
+
+    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                        , ConfiguredValue
+                                        , PackagePath
+                                        , ConfiguredValueType)
+    VALUES
+          (
+           'LoadDFNB3_jp'
 		 , 'C:\Users\julie\OneDrive\Escritorio\Current Classes\IT 243 - Data warehousing\Repos\DFNB_src-master_jp\txt_files\'
          , '\Package.Variables[User::v_data_share_root].Properties[Value]'
          , 'String'
