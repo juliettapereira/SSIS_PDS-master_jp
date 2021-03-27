@@ -24,9 +24,9 @@ MODIFICATION LOG:
 Ver      Date        Author           Description
 -------  ----------  ---------------  ------------------------------------------------------------------------
 1.0      11/03/2019  JJAUSSI          1. Created this process for LDS BC IT243
-2.0      3/24/2021  Julietta Pereira  1. Added common configuration 1.2 conn_DFNB3
-2.0      3/25/2021  Julietta Pereira  1. Added 3.2 LoadDFNB3_jp package configuration
-
+1.1      3/24/2021  Julietta Pereira  1. Added common configuration 1.2 conn_DFNB3
+1.2      3/25/2021  Julietta Pereira  1. Added 3.2 LoadDFNB3_jp package configuration
+1.3      3/26/2021  Julietta Pereira  1. Added 3.3 LoadEXM_jp package configuration
 
 RUNTIME: 
 approx 5 sec
@@ -165,13 +165,13 @@ SELECT c.*
 
 
 
-    -- 3.2) LoadDFNB3_jp
+    -- 3.3) LoadEXM_jp
 
     DELETE FROM dbo.[SSIS Configurations]
-     WHERE ConfigurationFilter = 'LoadDFNB3_jp';
+     WHERE ConfigurationFilter = 'LoadEXM_jp';
 	
 
-	-- 3.1.1) v_data_share_root
+	-- 3.3.1) v_data_share_root
 
     INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
                                         , ConfiguredValue
@@ -179,8 +179,8 @@ SELECT c.*
                                         , ConfiguredValueType)
     VALUES
           (
-           'LoadDFNB3_jp'
-		 , 'C:\Users\julie\OneDrive\Escritorio\Current Classes\IT 243 - Data warehousing\Repos\DFNB_src-master_jp\txt_files\'
+           'LoadEXM_jp'
+		 , 'C:\Users\julie\OneDrive\Escritorio\Current Classes\IT 243 - Data warehousing\Repos\EXM-master_jp\txt_files\'
          , '\Package.Variables[User::v_data_share_root].Properties[Value]'
          , 'String'
           );
